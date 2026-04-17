@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartRelay AI - Innovation Round Submission</title>
+    <style>
+      :root {
+        --bg: #050816;
+        --card: #0c1227;
+        --card-soft: #101934;
+        --text: #f8fafc;
+        --muted: #b8c4dd;
+        --accent: #22d3ee;
+        --accent-2: #34d399;
+        --danger: #fb7185;
+        --warning: #fbbf24;
+        --border: rgba(148, 163, 184, 0.25);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top, #0a1430 0%, var(--bg) 45%, #03050d 100%);
+        line-height: 1.55;
+      }
+
+      .deck {
+        width: 100%;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 24px 20px 48px;
+      }
+
+      .page {
+        min-height: 1050px;
+        padding: 38px 40px;
+        margin: 0 0 18px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(12, 18, 39, 0.98), rgba(9, 14, 31, 0.98));
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid.two {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        border: 1px solid rgba(34, 211, 238, 0.35);
+        background: rgba(34, 211, 238, 0.12);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 50px;
+        line-height: 1.05;
+        margin: 16px 0 10px;
+      }
+
+      h2 {
+        font-size: 30px;
+        margin: 12px 0 10px;
+      }
+
+      h3 {
+        font-size: 20px;
+        margin: 0 0 8px;
+      }
+
+      p {
+        color: var(--muted);
+        margin: 8px 0;
+      }
+
+      .tagline {
+        font-size: 22px;
+        color: #e2e8f0;
+        margin-top: 6px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: linear-gradient(180deg, rgba(16, 25, 52, 0.85), rgba(12, 18, 39, 0.85));
+        padding: 16px;
+      }
+
+      .metric {
+        border: 1px solid rgba(52, 211, 153, 0.35);
+        background: rgba(52, 211, 153, 0.12);
+        border-radius: 14px;
+        padding: 14px;
+      }
+
+      .metric .value {
+        font-size: 30px;
+        font-weight: 700;
+        color: #ecfeff;
+      }
+
+      ul {
+        margin: 10px 0 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      .flow {
+        margin-top: 18px;
+        border: 1px solid rgba(34, 211, 238, 0.35);
+        border-radius: 14px;
+        background: rgba(34, 211, 238, 0.08);
+        padding: 14px;
+        font-weight: 700;
+        color: #dff7ff;
+      }
+
+      .flow span {
+        color: var(--accent-2);
+      }
+
+      .kpi-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .kpi {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px;
+        background: rgba(15, 23, 42, 0.75);
+      }
+
+      .kpi strong {
+        font-size: 24px;
+        color: #ffffff;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      .warn {
+        color: var(--warning);
+      }
+
+      .danger {
+        color: var(--danger);
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 18px;
+        right: 24px;
+        font-size: 12px;
+        color: #8ea0c8;
+      }
+
+      .link {
+        color: #67e8f9;
+        text-decoration: none;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 18px;
+      }
+
+      @media print {
+        body {
+          background: #050816;
+        }
+        .deck {
+          max-width: 100%;
+          padding: 0;
+        }
+        .page {
+          margin: 0;
+          border-radius: 0;
+          border: none;
+          box-shadow: none;
+          min-height: 1122px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck">
+      <section class="page">
+        <div class="eyebrow">Innovation Round Submission</div>
+        <h1>SmartRelay AI</h1>
+        <p class="tagline">Predict failures before they happen.</p>
+        <p class="lead">
+          An AI-powered system that predicts relay failures using real-time telemetry and enables
+          proactive maintenance using edge and cloud intelligence.
+        </p>
+
+        <div class="kpi-row">
+          <div class="kpi"><p>Model Inputs</p><strong>3</strong><p>Temperature, Load, Cycles</p></div>
+          <div class="kpi"><p>Prediction Outputs</p><strong>3</strong><p>RUL, Risk, Confidence</p></div>
+          <div class="kpi"><p>Deployment Status</p><strong>Live</strong><p>Demo-ready system</p></div>
+        </div>
+        <div class="footer">Page 1 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Problem Statement</div>
+        <h2>Relay failures create avoidable downtime and cost.</h2>
+        <p>
+          Inverter relay failures are often detected only after service interruption. Existing
+          setups lack early warning visibility and actionable failure forecasting.
+        </p>
+        <div class="grid two">
+          <div class="card">
+            <h3>Operational Issues</h3>
+            <ul>
+              <li>Unexpected relay breakdown causes unplanned downtime.</li>
+              <li>Maintenance teams react late due to limited predictive visibility.</li>
+              <li>Field service scheduling becomes urgent and inefficient.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Real-World Impact</h3>
+            <ul>
+              <li>Business interruption affects uptime commitments.</li>
+              <li>Emergency service and replacement raise maintenance cost.</li>
+              <li>Financial losses accumulate across multi-inverter fleets.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="metric" style="margin-top: 16px">
+          <p>Example impact</p>
+          <div class="value">₹50,000</div>
+          <p>Estimated downtime loss from a preventable relay failure event.</p>
+        </div>
+        <div class="footer">Page 2 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Proposed Solution</div>
+        <h2>SmartRelay AI predicts failure before breakdown.</h2>
+        <p>
+          SmartRelay AI continuously evaluates relay health using telemetry and estimates Remaining
+          Life and Failure Risk in real time.
+        </p>
+        <div class="split">
+          <div class="card">
+            <h3>Core Logic</h3>
+            <ul>
+              <li>Inputs: temperature, load %, switching cycles.</li>
+              <li>Predicts Remaining Life (%), Failure Risk (%), and likely failure horizon.</li>
+              <li>Enables maintenance action before system disruption.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Two-Layer Intelligence</h3>
+            <ul>
+              <li><span class="warn">Edge:</span> immediate threshold alerts on device side.</li>
+              <li><span class="accent">Cloud:</span> AI-driven predictive scoring and trend analysis.</li>
+              <li>Unified dashboard for operators and service teams.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer">Page 3 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Key Innovations</div>
+        <h2>Built for explainability, realism, and demo impact.</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Explainable AI</h3>
+            <p>Shows why risk rises through contribution factors:</p>
+            <ul>
+              <li>High temperature - risk contribution</li>
+              <li>High load - risk contribution</li>
+              <li>Switching cycles - risk contribution</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Real-Time Data Modes</h3>
+            <ul>
+              <li>Simulation mode for stress scenarios.</li>
+              <li>Real Data Mode connected to mock API stream.</li>
+              <li>Live API badge for judge confidence.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Interactive Replay</h3>
+            <ul>
+              <li>Historical degradation timeline replay.</li>
+              <li>Shows progression: healthy -> warning -> failure risk.</li>
+              <li>Story-driven demonstration of model behavior.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Hybrid Deployment</h3>
+            <ul>
+              <li>Edge + Cloud architecture.</li>
+              <li>Fast local alerting plus scalable fleet analytics.</li>
+              <li>Designed for production transition.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer">Page 4 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">System Architecture</div>
+        <h2>End-to-end relay intelligence pipeline.</h2>
+        <div class="flow">
+          Inverter <span>-></span> MODBUS <span>-></span> IoT Device <span>-></span> MQTT
+          <span>-></span> Cloud <span>-></span> AI Model <span>-></span> Dashboard
+        </div>
+        <div class="grid two" style="margin-top: 16px">
+          <div class="card"><h3>Inverter + MODBUS</h3><p>Collects relay telemetry from device registers.</p></div>
+          <div class="card"><h3>IoT Device</h3><p>Packages and forwards data to cloud transport layer.</p></div>
+          <div class="card"><h3>MQTT + Cloud</h3><p>Streams telemetry at scale and stores it for inference.</p></div>
+          <div class="card"><h3>AI + Dashboard</h3><p>Computes risk/RUL and converts outputs to maintenance actions.</p></div>
+        </div>
+        <div class="footer">Page 5 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Model & Technical Approach</div>
+        <h2>Lightweight, interpretable, and extensible model design.</h2>
+        <div class="card">
+          <h3>Current prediction model</h3>
+          <p>
+            Linear regression-based scoring using live telemetry features. Designed for transparent
+            logic and fast inference in demo and production-like environments.
+          </p>
+        </div>
+        <div class="grid two" style="margin-top: 14px">
+          <div class="card">
+            <h3>Inputs</h3>
+            <ul>
+              <li>Temperature</li>
+              <li>Load %</li>
+              <li>Switching cycles</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Outputs</h3>
+            <ul>
+              <li>Remaining Life (%)</li>
+              <li>Failure Risk (%)</li>
+              <li>Confidence Score</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 14px">
+          <h3>Future-ready extension</h3>
+          <p>
+            Architecture supports migration to advanced ML models such as Random Forest,
+            Gradient Boosting, or sequence models without changing dashboard workflows.
+          </p>
+        </div>
+        <div class="footer">Page 6 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Product Features</div>
+        <h2>Demo-ready feature stack for innovation evaluation.</h2>
+        <div class="grid two">
+          <div class="card"><h3>Real-time dashboard</h3><p>Live charts and health monitoring with continuous updates.</p></div>
+          <div class="card"><h3>Failure prediction</h3><p>Predicts likely failure horizon in days with risk indicators.</p></div>
+          <div class="card"><h3>Alerts system</h3><p>Warning and critical escalation with actionable next steps.</p></div>
+          <div class="card"><h3>AI insights panel</h3><p>One-click insight and explainability for maintenance decisions.</p></div>
+          <div class="card"><h3>Fleet monitoring</h3><p>Multi-inverter visibility, top risky devices, fleet health score.</p></div>
+          <div class="card"><h3>Simulation controls</h3><p>Interactive controls for stress testing and replay storytelling.</p></div>
+        </div>
+        <div class="footer">Page 7 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Business Impact</div>
+        <h2>Technical prediction converted to measurable value.</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Without SmartRelay AI</h3>
+            <ul>
+              <li>Downtime: 5 hours</li>
+              <li>Emergency maintenance and service disruption</li>
+              <li>Estimated loss: ₹50,000</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>With SmartRelay AI</h3>
+            <ul>
+              <li>Early warning enables preventive action</li>
+              <li>Downtime reduced to near zero</li>
+              <li class="accent">Prevented failure saves ₹50,000 downtime cost</li>
+            </ul>
+          </div>
+        </div>
+        <div class="metric" style="margin-top: 16px">
+          <p>Operational Outcome</p>
+          <div class="value">Higher reliability + lower service cost</div>
+          <p>Improves maintenance efficiency across distributed inverter fleets.</p>
+        </div>
+        <div class="footer">Page 8 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Real-World Feasibility</div>
+        <h2>Designed for practical deployment in current infrastructure.</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Integration Feasibility</h3>
+            <ul>
+              <li>Uses MODBUS-compatible data structures.</li>
+              <li>Works with existing inverter telemetry pathways.</li>
+              <li>MQTT-based messaging for scalable IoT integration.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Deployment Feasibility</h3>
+            <ul>
+              <li>Mock API simulates real telemetry ingestion.</li>
+              <li>Edge + cloud split supports low-latency alerts.</li>
+              <li>Cloud-ready architecture for future production rollout.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 16px">
+          <h3>Validation note</h3>
+          <p>
+            Tested with simulated inverter data aligned to MODBUS protocol ranges.
+          </p>
+        </div>
+        <div class="footer">Page 9 / 10</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Demo & Links</div>
+        <h2>Live, testable, and submission-ready.</h2>
+        <div class="card">
+          <h3>Live Website</h3>
+          <p><a class="link" href="https://smartrelayapp.web.app/">https://smartrelayapp.web.app/</a></p>
+        </div>
+        <div class="card" style="margin-top: 12px">
+          <h3>GitHub (Optional)</h3>
+          <p>Add repository URL if required by the innovation panel.</p>
+        </div>
+        <div class="card" style="margin-top: 12px">
+          <h3>Demo Readiness</h3>
+          <ul>
+            <li>Real-time dashboard and prediction flow are live.</li>
+            <li>Explainability, alerts, replay, and fleet intelligence included.</li>
+            <li>Business impact and architecture narrative are presentation-ready.</li>
+          </ul>
+        </div>
+        <p style="margin-top: 18px" class="lead">
+          SmartRelay AI combines technical clarity, practical feasibility, and measurable business value.
+        </p>
+        <div class="footer">Page 10 / 10</div>
+      </section>
+    </main>
+  </body>
+</html>
+

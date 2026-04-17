@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "smartrelay-hosting-2026"
+  },
+  "targets": {
+    "smartrelay-hosting-2026": {
+      "hosting": {
+        "app": [
+          "smartrelayapp"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

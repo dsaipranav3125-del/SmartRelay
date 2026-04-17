@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartRelay AI - Innovation Round Submission (Report)</title>
+    <style>
+      :root {
+        --text: #0f172a;
+        --muted: #334155;
+        --border: #e2e8f0;
+        --soft: #f8fafc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Inter, Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: white;
+        line-height: 1.55;
+      }
+
+      .doc {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 10px 12px 12px;
+      }
+
+      h1 {
+        margin: 0 0 6px;
+        font-size: 34px;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        margin: 10px 0 6px;
+        font-size: 20px;
+        border-top: 1px solid var(--border);
+        padding-top: 6px;
+      }
+
+      h3 {
+        margin: 8px 0 6px;
+        font-size: 16px;
+      }
+
+      p {
+        margin: 4px 0;
+        color: var(--muted);
+      }
+
+      .meta {
+        margin-top: 6px;
+        padding: 8px 10px;
+        background: var(--soft);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 6px;
+      }
+
+      .box {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 8px 10px;
+        background: white;
+      }
+
+      ul {
+        margin: 4px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      li {
+        margin: 3px 0;
+      }
+
+      .flow {
+        font-weight: 700;
+        color: #111827;
+        border: 1px dashed #cbd5e1;
+        border-radius: 10px;
+        padding: 8px 10px;
+        background: #fbfdff;
+      }
+
+      .figure {
+        margin: 6px 0 0;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+      }
+
+      .figure img {
+        width: 100%;
+        display: block;
+      }
+
+      .quad-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .quad-shot {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .quad-shot img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .caption {
+        padding: 6px 8px;
+        font-size: 12.5px;
+        color: var(--muted);
+        background: var(--soft);
+        border-top: 1px solid var(--border);
+      }
+
+      .pagebreak {
+        display: none;
+      }
+
+      .kbd {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+        padding: 1px 6px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: #ffffff;
+        color: #0f172a;
+        white-space: nowrap;
+      }
+
+      @media print {
+        .doc {
+          max-width: 100%;
+          padding: 0;
+        }
+        h2 {
+          break-after: avoid;
+          page-break-after: avoid;
+        }
+        .figure,
+        .box {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        .pagebreak { display: none; }
+        .figure img {
+          max-height: 640px;
+          object-fit: contain;
+          background: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="doc">
+      <h1>SmartRelay AI</h1>
+      <p><strong>Tagline:</strong> Predict failures before they happen.</p>
+      <p>
+        <strong>One-line description:</strong> SmartRelay AI watches inverter relay behavior in real time and estimates when a relay is likely to fail, so teams can act before downtime.
+      </p>
+
+      <div class="meta">
+        <div><strong>Theme:</strong> Predictive maintenance for inverter relays using AI</div>
+        <div><strong>Live demo:</strong> https://smartrelayapp.web.app/</div>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>2. Problem Statement</h2>
+      <p>
+        In many inverter installations, relay failures are discovered only after service drops. Teams can see raw readings, but they usually do not get a clear prediction of remaining relay life.
+      </p>
+      <p>
+        The result is reactive maintenance: urgent technician dispatch, replacement under pressure, and avoidable operational loss.
+      </p>
+      <div class="two">
+        <div class="box">
+          <h3>Pain points</h3>
+          <ul>
+            <li>No practical “failure in X days” signal for service planning.</li>
+            <li>Field teams are forced to respond after disruption begins.</li>
+            <li>Hard to prioritize risk across multiple deployed inverters.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Real-world impact</h3>
+          <ul>
+            <li>Downtime and SLA breach risk.</li>
+            <li>Emergency replacement + technician cost.</li>
+            <li><strong>Business loss example:</strong> prevented failure saves <strong>₹50,000</strong> downtime cost.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>3. Proposed Solution</h2>
+      <p>
+        SmartRelay AI combines live telemetry with a lightweight prediction model to estimate relay Remaining Life (%) and Failure Risk (%). It then converts this into simple actions: warning, critical, and service recommendation.
+      </p>
+      <p>
+        The design is split by purpose: edge logic for immediate local alerts, and cloud logic for prediction quality, trends, and fleet visibility.
+      </p>
+      <div class="box">
+        <h3>Prediction objective</h3>
+        <ul>
+          <li><strong>Inputs:</strong> temperature, load %, switching cycles</li>
+          <li><strong>Outputs:</strong> Remaining Life (%), Failure Risk (%), Confidence Score, and “failure predicted in X days”</li>
+        </ul>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>4. Key Innovations</h2>
+      <div class="two">
+        <div class="box">
+          <h3>Explainable AI</h3>
+          <p>Shows <strong>why</strong> risk increases with a visible contribution split (temperature / load / cycles).</p>
+        </div>
+        <div class="box">
+          <h3>Real-time realism</h3>
+          <p>Live charts plus <strong>Real Data Mode</strong> (mock API stream) with a “Connected to mock API” badge to remove demo ambiguity.</p>
+        </div>
+        <div class="box">
+          <h3>Edge + Cloud hybrid</h3>
+          <p>Edge thresholds for immediate protection; cloud AI for remaining-life estimation and fleet analytics.</p>
+        </div>
+        <div class="box">
+          <h3>Story-driven replay</h3>
+          <p>Historical failure replay slider to demonstrate progression from healthy → warning → high risk.</p>
+        </div>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>5. System Architecture</h2>
+      <p>Implemented architecture flow:</p>
+      <div class="flow">Inverter → MODBUS → IoT Device → MQTT → Cloud → AI Model → Dashboard</div>
+      <div class="two">
+        <div class="box">
+          <h3>Inverter + MODBUS</h3>
+          <p>Registers expose relay temperature/load/current/voltage and switching behavior.</p>
+        </div>
+        <div class="box">
+          <h3>IoT Device + MQTT</h3>
+          <p>Packages telemetry and streams it reliably to cloud ingestion.</p>
+        </div>
+        <div class="box">
+          <h3>Cloud + AI Model</h3>
+          <p>Computes failure risk and remaining-life estimates continuously.</p>
+        </div>
+        <div class="box">
+          <h3>Dashboard</h3>
+          <p>Turns predictions into alerts and technician actions for operations teams.</p>
+        </div>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>6. Model & Technical Approach</h2>
+      <p>
+        The current system uses a linear-regression-style risk scorer. We chose this deliberately: it is easy to explain, fast to run, and stable for real-time updates.
+      </p>
+      <p>
+        Inputs are temperature, load %, and switching cycles. Outputs are Remaining Life (%), Failure Risk (%), and Confidence Score. The same pipeline can be upgraded later to Random Forest or Gradient Boosting without redesigning the dashboard.
+      </p>
+      <div class="box">
+        <h3>Inputs / outputs</h3>
+        <ul>
+          <li><strong>Inputs:</strong> Temperature, Load %, Switching cycles</li>
+          <li><strong>Outputs:</strong> Remaining Life (%), Failure Risk (%), Confidence Score</li>
+          <li><strong>Explainability:</strong> contribution breakdown for “Why did it fail?”</li>
+        </ul>
+      </div>
+      <div class="box" style="margin-top: 12px">
+        <h3>Real-world feasibility note</h3>
+        <p><strong>Tested with simulated inverter data aligned to MODBUS protocol ranges.</strong></p>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>7. Features</h2>
+      <div class="two">
+        <div class="box">
+          <h3>Real-time dashboard</h3>
+          <ul>
+            <li>Live charts updated every 1–2 seconds</li>
+            <li>Prediction cards (risk, RUL, failure horizon)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Alerts + actions</h3>
+          <ul>
+            <li>Warning / critical alerts</li>
+            <li><strong>Field Engineer Mode:</strong> <span class="kbd">Send technician</span> with location + action</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Multi-inverter intelligence</h3>
+          <ul>
+            <li>Fleet health score</li>
+            <li>Top 3 risky devices</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Replay + insights</h3>
+          <ul>
+            <li>Historical failure replay slider</li>
+            <li>AI Assistant (1-click insight)</li>
+            <li>Confidence vs Risk visualization</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>Evidence: Webpage Screenshots (Reference)</h2>
+      <p>Screenshots below are from the current live deployment and map directly to the claims in this document.</p>
+
+      <div class="figure">
+        <div class="quad-grid">
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part1.png" alt="Dashboard overview part 1" />
+          </div>
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part2.png" alt="Dashboard overview part 2" />
+          </div>
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part3.png" alt="Dashboard overview part 3" />
+          </div>
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part4.png" alt="Dashboard overview part 4" />
+          </div>
+        </div>
+        <div class="caption">Dashboard overview split into four laptop-style captures: prediction cards, alerts, and live monitoring.</div>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>Additional Screenshot References</h2>
+      <p>Supporting captures from specific sections of the live product.</p>
+
+      <div class="figure">
+        <img src="photo/03-live-dashboard-section.png" alt="Live dashboard" />
+        <div class="caption">Live dashboard: streaming telemetry + data source mode toggle (Simulation / Real Data Mode) + mock API connectivity badge.</div>
+      </div>
+
+      <div class="figure">
+        <img src="photo/04-ai-insights-section.png" alt="AI insights" />
+        <div class="caption">AI Insights: confidence and combined confidence-vs-risk trend visualization.</div>
+      </div>
+
+      <div class="figure">
+        <img src="photo/05-simulation-section.png" alt="Simulation" />
+        <div class="caption">Simulation controls: interactive stress testing and health state changes.</div>
+      </div>
+
+      <div class="figure">
+        <img src="photo/06-architecture-section.png" alt="Architecture" />
+        <div class="caption">Architecture: Inverter → MODBUS → IoT Device → MQTT → Cloud → AI Model → Dashboard.</div>
+      </div>
+
+      <div class="figure">
+        <img src="photo/07-technical-depth-and-edge-cloud.png" alt="Technical depth" />
+        <div class="caption">Technical depth and Edge + Cloud concept for deployment feasibility.</div>
+      </div>
+
+      <div class="pagebreak"></div>
+
+      <h2>10. Demo & Links</h2>
+      <div class="box">
+        <h3>Live Website</h3>
+        <p>https://smartrelayapp.web.app/</p>
+      </div>
+      <div class="box" style="margin-top: 12px">
+        <h3>Submission readiness</h3>
+        <ul>
+          <li>Live dashboard with real-time updates</li>
+          <li>RUL + risk prediction with alerts</li>
+          <li>Explainability and replay</li>
+          <li>Fleet risk ranking and field action workflow</li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
+

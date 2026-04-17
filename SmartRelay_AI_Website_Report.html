@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartRelay AI - Website Submission Report</title>
+    <style>
+      :root {
+        --bg: #06101d;
+        --card: #0d1729;
+        --card-soft: #101d35;
+        --text: #f8fafc;
+        --muted: #c7d2e5;
+        --line: rgba(148, 163, 184, 0.2);
+        --cyan: #22d3ee;
+        --green: #34d399;
+        --amber: #fbbf24;
+        --rose: #fb7185;
+        --ink: #0f172a;
+        --paper: #ffffff;
+        --paper-soft: #f8fafc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: radial-gradient(circle at top, #10213f 0%, #06101d 40%, #040811 100%);
+        color: var(--text);
+        line-height: 1.55;
+      }
+
+      .doc {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 20px 60px;
+      }
+
+      .page {
+        min-height: 1080px;
+        margin-bottom: 18px;
+        padding: 36px 38px;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(13, 23, 41, 0.98), rgba(7, 13, 24, 0.98));
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        page-break-after: always;
+        position: relative;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(34, 211, 238, 0.28);
+        background: rgba(34, 211, 238, 0.12);
+        color: #c8f6ff;
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 54px;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+      }
+
+      h2 {
+        margin-bottom: 12px;
+        font-size: 30px;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      h4 {
+        margin-bottom: 6px;
+        font-size: 15px;
+        letter-spacing: 0.02em;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      .tagline {
+        font-size: 20px;
+        color: #e2e8f0;
+      }
+
+      .lead {
+        font-size: 17px;
+        max-width: 760px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .two {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .three {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(16, 29, 53, 0.85), rgba(9, 17, 30, 0.88));
+        padding: 16px 18px;
+      }
+
+      .metric {
+        border: 1px solid rgba(52, 211, 153, 0.26);
+        background: rgba(52, 211, 153, 0.08);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--text);
+        font-size: 30px;
+        margin-top: 8px;
+      }
+
+      .list {
+        margin: 10px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .list li {
+        margin: 6px 0;
+      }
+
+      .flow {
+        margin-top: 10px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px dashed rgba(34, 211, 238, 0.35);
+        background: rgba(34, 211, 238, 0.08);
+        color: #eefcff;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.45;
+      }
+
+      .formula {
+        font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: 13px;
+        color: #d9f9ff;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(34, 211, 238, 0.18);
+        border-radius: 14px;
+        padding: 12px 14px;
+        margin-top: 10px;
+      }
+
+      .figure {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .figure img {
+        display: block;
+        width: 100%;
+      }
+
+      .caption {
+        padding: 10px 12px;
+        font-size: 12.5px;
+        color: #cbd5e1;
+        background: rgba(255, 255, 255, 0.04);
+        border-top: 1px solid var(--line);
+      }
+
+      .quad-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .quad-shot {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .quad-shot img {
+        width: 100%;
+        height: 290px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .pill {
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: #e2e8f0;
+      }
+
+      .warn {
+        border-color: rgba(251, 191, 36, 0.3);
+        background: rgba(251, 191, 36, 0.12);
+        color: #fde68a;
+      }
+
+      .danger {
+        border-color: rgba(251, 113, 133, 0.3);
+        background: rgba(251, 113, 133, 0.12);
+        color: #fecdd3;
+      }
+
+      .ok {
+        border-color: rgba(52, 211, 153, 0.3);
+        background: rgba(52, 211, 153, 0.12);
+        color: #bbf7d0;
+      }
+
+      .light-page {
+        background: linear-gradient(180deg, #ffffff, #f8fbff);
+        color: var(--ink);
+        border-color: #dde7f2;
+      }
+
+      .light-page p,
+      .light-page li {
+        color: #334155;
+      }
+
+      .light-page .eyebrow {
+        color: #0f766e;
+        background: rgba(45, 212, 191, 0.14);
+        border-color: rgba(45, 212, 191, 0.32);
+      }
+
+      .light-page .card {
+        background: #ffffff;
+        border-color: #dde7f2;
+      }
+
+      .light-page .figure,
+      .light-page .quad-shot {
+        border-color: #dde7f2;
+        background: #ffffff;
+      }
+
+      .light-page .caption {
+        color: #475569;
+        background: #f8fafc;
+        border-top-color: #e2e8f0;
+      }
+
+      .light-page .flow {
+        color: #0f172a;
+        background: #ecfeff;
+        border-color: rgba(8, 145, 178, 0.35);
+      }
+
+      .page-no {
+        position: absolute;
+        right: 28px;
+        bottom: 20px;
+        font-size: 12px;
+        color: rgba(148, 163, 184, 0.8);
+      }
+
+      .footer-note {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #94a3b8;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .doc {
+          max-width: 100%;
+          padding: 0;
+        }
+
+        .page {
+          margin: 0;
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="doc">
+      <section class="page">
+        <div class="eyebrow">Submission Document</div>
+        <h1>SmartRelay AI</h1>
+        <p class="tagline">Predict Failures Before They Happen</p>
+        <p class="lead">
+          AI-powered predictive maintenance for inverters and UPS systems by
+          <strong>Luminous Power Technologies</strong>. The platform estimates
+          relay remaining life, predicts failure horizon, simulates real-time
+          operating stress, and turns telemetry into maintenance action before
+          downtime occurs.
+        </p>
+
+        <div class="grid three" style="margin-top: 22px">
+          <div class="card metric">
+            <h4>Relay Health</h4>
+            <strong>72%</strong>
+            <p>Live health score surfaced in the hero and dashboard.</p>
+          </div>
+          <div class="card metric">
+            <h4>Prediction Confidence</h4>
+            <strong>91%</strong>
+            <p>Confidence score shown with AI insights and decision support.</p>
+          </div>
+          <div class="card metric">
+            <h4>Connected Inverters</h4>
+            <strong>18</strong>
+            <p>Fleet-ready product positioning with multiple product views.</p>
+          </div>
+        </div>
+
+        <div class="grid two" style="margin-top: 18px; align-items: start">
+          <div class="card">
+            <h3>What the website demonstrates</h3>
+            <ul class="list">
+              <li>Real-time telemetry dashboard with live updating values</li>
+              <li>Prediction engine using temperature, load %, and switching cycles</li>
+              <li>Warning and critical alert system with escalation UI</li>
+              <li>Edge + cloud architecture using MODBUS and MQTT</li>
+              <li>Simulation controls, historical replay, and business impact framing</li>
+              <li>Copilot-style assistant, product management, and support workflows</li>
+            </ul>
+          </div>
+          <div class="figure">
+            <img src="photo/02-dashboard-home.png" alt="SmartRelay dashboard home" />
+            <div class="caption">Current SmartRelay AI dashboard home experience used as the basis for this report.</div>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <div class="pill ok">Live Dashboard</div>
+          <div class="pill warn">Pre-failure Alerts</div>
+          <div class="pill">Digital Twin</div>
+          <div class="pill">Simulation Panel</div>
+          <div class="pill">Copilot</div>
+          <div class="pill">Theme Studio</div>
+        </div>
+        <div class="page-no">01</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Problem + Solution</div>
+        <h2>From reactive inverter service to predictive relay maintenance</h2>
+        <p class="lead">
+          The website frames SmartRelay AI as a product that watches relay wear in
+          real time and estimates when a failure is likely to happen, so service
+          teams can act early instead of waiting for an outage.
+        </p>
+
+        <div class="grid two" style="margin-top: 14px">
+          <div class="card">
+            <h3>Problem statement</h3>
+            <ul class="list">
+              <li>Relay and contactor failures often surface only after service drops.</li>
+              <li>Operators see raw values, but not a clear “failure in X days” signal.</li>
+              <li>Field teams struggle to prioritize which inverter needs action first.</li>
+              <li>Unplanned downtime leads to emergency dispatch and replacement cost.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Website-led solution story</h3>
+            <ul class="list">
+              <li>Predict remaining life and failure risk continuously.</li>
+              <li>Convert raw telemetry into clear warning and critical states.</li>
+              <li>Combine edge alerting with cloud-level prediction and fleet visibility.</li>
+              <li>Provide operators, service engineers, and support teams one shared interface.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid two" style="margin-top: 16px">
+          <div class="card">
+            <h3>Core inputs and outputs</h3>
+            <ul class="list">
+              <li><strong>Inputs:</strong> temperature, load %, switching cycles</li>
+              <li><strong>Outputs:</strong> remaining life (%), failure risk (%), confidence score</li>
+              <li><strong>Decision layer:</strong> warning, high risk, failure horizon, service action</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Product value shown on the website</h3>
+            <ul class="list">
+              <li>Startup-style operational dashboard that feels commercially deployable</li>
+              <li>Interactive demo flow for judges, customers, or internal stakeholders</li>
+              <li>Visual proof of architecture, AI logic, alerts, and support readiness</li>
+            </ul>
+          </div>
+        </div>
+        <div class="page-no">02</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Prediction Engine</div>
+        <h2>A real prediction system, presented clearly</h2>
+        <p class="lead">
+          The website includes a lightweight but explainable prediction engine.
+          It behaves like a regression-style risk scorer, making it simple to
+          understand and easy to extend later to more advanced ML models.
+        </p>
+
+        <div class="grid two" style="margin-top: 14px">
+          <div class="card">
+            <h3>Prediction logic shown in the product</h3>
+            <p>
+              Thermal stress, load stress, and switching-cycle stress are combined
+              into a weighted failure-risk score. That score is then converted into
+              remaining life and failure horizon for maintenance planning.
+            </p>
+            <div class="formula">
+              risk = weighted(temperature, load, switchingCycles)<br />
+              remainingLife = 100 - risk<br />
+              failureHorizon = derived from degradation trend and current score
+            </div>
+          </div>
+          <div class="card">
+            <h3>Why this works</h3>
+            <ul class="list">
+              <li>Higher temperature increases relay contact wear.</li>
+              <li>Higher load adds electrical and mechanical stress.</li>
+              <li>More switching cycles accelerate long-term degradation.</li>
+              <li>Together they produce an interpretable risk signal for action.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid three" style="margin-top: 16px">
+          <div class="card">
+            <h4>Live output</h4>
+            <h3>Remaining Life: 68%</h3>
+            <p>Rendered directly in the dashboard radial and hero cards.</p>
+          </div>
+          <div class="card">
+            <h4>Failure alert</h4>
+            <h3>Failure in 3 days</h3>
+            <p>Shown as a strong, easy-to-understand prediction message.</p>
+          </div>
+          <div class="card">
+            <h4>Risk state</h4>
+            <h3>High Risk</h3>
+            <p>Color-coded status enables clear action prioritization.</p>
+          </div>
+        </div>
+
+        <div class="figure" style="margin-top: 18px">
+          <img src="photo/04-ai-insights-section.png" alt="AI insights section" />
+          <div class="caption">AI Insights section from the website: confidence score, explainable model logic, and prediction trend presentation.</div>
+        </div>
+        <div class="page-no">03</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Architecture</div>
+        <h2>End-to-end data flow from inverter hardware to AI action</h2>
+        <p class="lead">
+          The website explicitly explains how inverter telemetry moves from device
+          hardware into the cloud and finally into a decision dashboard.
+        </p>
+
+        <div class="flow">
+          Inverter → MODBUS → IoT Device → MQTT → Cloud → AI Model → Dashboard
+        </div>
+
+        <div class="grid two" style="margin-top: 16px">
+          <div class="card">
+            <h3>Edge layer</h3>
+            <ul class="list">
+              <li>Reads inverter telemetry and operating status at the source.</li>
+              <li>Can trigger immediate threshold-based buzzer or LED alerts.</li>
+              <li>Supports fast local warning even before cloud scoring completes.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Cloud layer</h3>
+            <ul class="list">
+              <li>Consumes streamed telemetry for continuous prediction updates.</li>
+              <li>Calculates remaining life, confidence, and failure horizon.</li>
+              <li>Pushes alerts, fleet visibility, and service workflows to operators.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid two" style="margin-top: 16px">
+          <div class="figure">
+            <img src="photo/06-architecture-section.png" alt="Architecture section" />
+            <div class="caption">Architecture section from the website with the exact inverter-to-dashboard flow.</div>
+          </div>
+          <div class="card">
+            <h3>Why this matters in the website</h3>
+            <p>
+              This turns the product from “just a dashboard” into a credible
+              deployment concept. It shows how raw inverter data becomes a usable
+              maintenance system for service teams.
+            </p>
+            <ul class="list">
+              <li>Practical edge + cloud split</li>
+              <li>MQTT-ready for scalable fleet messaging</li>
+              <li>Aligned to inverter telemetry and predictive-maintenance workflow</li>
+            </ul>
+          </div>
+        </div>
+        <div class="page-no">04</div>
+      </section>
+
+      <section class="page light-page">
+        <div class="eyebrow">Website Evidence</div>
+        <h2>Key interface sections captured from the current product</h2>
+        <p class="lead">
+          The screenshots below show how the website tells the full story:
+          landing page, live dashboard, AI insights, simulation, and technical
+          depth.
+        </p>
+
+        <div class="quad-grid" style="margin-top: 16px">
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part1.png" alt="Dashboard part 1" />
+          </div>
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part2.png" alt="Dashboard part 2" />
+          </div>
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part3.png" alt="Dashboard part 3" />
+          </div>
+          <div class="quad-shot">
+            <img src="photo/02-dashboard-part4.png" alt="Dashboard part 4" />
+          </div>
+        </div>
+        <div class="caption" style="margin-top: 10px; border: 1px solid #dde7f2; border-radius: 14px">
+          Dashboard walkthrough split into four captures: prediction card, live telemetry, product management, and operations panels.
+        </div>
+
+        <div class="grid two" style="margin-top: 18px">
+          <div class="figure">
+            <img src="photo/03-live-dashboard-section.png" alt="Live dashboard section" />
+            <div class="caption">Live dashboard with streaming telemetry, digital twin, and remaining-life visualization.</div>
+          </div>
+          <div class="figure">
+            <img src="photo/05-simulation-section.png" alt="Simulation section" />
+            <div class="caption">Simulation panel that changes health score, status color, and predicted failure horizon.</div>
+          </div>
+        </div>
+        <div class="page-no">05</div>
+      </section>
+
+      <section class="page">
+        <div class="eyebrow">Advanced Product Layers</div>
+        <h2>Technical depth, alerts, support, and operator experience</h2>
+        <p class="lead">
+          Beyond charts, the website is designed as a complete product experience:
+          it includes guided interpretation, support actions, historical replay,
+          user management, and a copilot layer.
+        </p>
+
+        <div class="grid two" style="margin-top: 14px">
+          <div class="figure">
+            <img src="photo/07-technical-depth-and-edge-cloud.png" alt="Technical depth and edge cloud" />
+            <div class="caption">Technical depth and edge/cloud concept as presented in the current website.</div>
+          </div>
+          <div class="card">
+            <h3>Additional layers already represented in the website</h3>
+            <ul class="list">
+              <li>Mobile-style alerts and escalation UI</li>
+              <li>Customer care and support workflows</li>
+              <li>Product switching and profile management</li>
+              <li>Theme studio and brand-style customization</li>
+              <li>Copilot for high-level summaries and natural-language questions</li>
+              <li>Map and fleet view for future multi-inverter rollout</li>
+            </ul>
+            <div class="pill-row">
+              <div class="pill warn">Warning Alert</div>
+              <div class="pill danger">Critical Alert</div>
+              <div class="pill ok">Support Action</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid two" style="margin-top: 16px">
+          <div class="card">
+            <h3>Business positioning</h3>
+            <p>
+              The website does not stop at technical monitoring. It translates
+              AI output into downtime prevention, service prioritization, and fleet
+              operations value.
+            </p>
+            <ul class="list">
+              <li>Preventive maintenance before failure becomes visible</li>
+              <li>Lower emergency replacement pressure</li>
+              <li>Single platform for operator, engineer, and support workflows</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Demo-readiness</h3>
+            <ul class="list">
+              <li>Strong hero and failure-simulation moment</li>
+              <li>Clear architecture and model explanation</li>
+              <li>Rich interactions to keep the product feeling live</li>
+              <li>Evidence-backed storytelling with screenshots and section-level proof</li>
+            </ul>
+          </div>
+        </div>
+        <div class="page-no">06</div>
+      </section>
+
+      <section class="page light-page">
+        <div class="eyebrow">Access + Deliverables</div>
+        <h2>Submission summary</h2>
+        <p class="lead">
+          This report is based on the current SmartRelay AI website and is designed
+          to match the same polished, submission-ready style as the example report.
+        </p>
+
+        <div class="grid two" style="margin-top: 16px">
+          <div class="card">
+            <h3>Website links</h3>
+            <ul class="list">
+              <li><strong>Public Firebase deployment:</strong> https://smartrelayapp.web.app/</li>
+              <li><strong>Vercel deployment:</strong> https://smartrelayapp.vercel.app/</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Document deliverables</h3>
+            <ul class="list">
+              <li>HTML report file for future edits</li>
+              <li>PDF export file for direct sharing or submission</li>
+              <li>Evidence screenshots mapped to the website experience</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid two" style="margin-top: 16px">
+          <div class="card">
+            <h3>Included report themes</h3>
+            <ul class="list">
+              <li>Problem statement and solution framing</li>
+              <li>Prediction model explanation</li>
+              <li>Architecture and edge/cloud concept</li>
+              <li>Website screenshots and feature evidence</li>
+              <li>Product positioning and deployment readiness</li>
+            </ul>
+          </div>
+          <div class="figure">
+            <img src="photo/01-login-page.png" alt="Login page" />
+            <div class="caption">Login screen from the product, showing the branded access flow before entry into the dashboard.</div>
+          </div>
+        </div>
+
+        <p class="footer-note">
+          Prepared from the current SmartRelay AI website implementation in the
+          D:\Luminous workspace.
+        </p>
+        <div class="page-no">07</div>
+      </section>
+    </main>
+  </body>
+</html>
